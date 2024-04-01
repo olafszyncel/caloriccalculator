@@ -13,3 +13,111 @@
 .product-head{
     display: inline-block;
 }
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 100% wysokości widoku */
+    background-image: url('images/image3.jpg');
+    background-size: cover; /* Zapewnia, że obraz wypełnia całe tło */
+    background-position: center; /* Pozycja obrazu */
+    color: white; /* Kolor tekstu */
+    background-repeat:repeat;
+	background-attachment:fixed;
+	overflow:scroll;
+	line-height:2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.blur-layer {
+    position: fixed;
+    filter: brightness(25%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px); /* Rozmycie warstwy */
+   
+    z-index: 1; /* Upewnij się, że warstwa z efektem rozmycia jest na wierzchu */
+}
+
+.content {
+    position: relative;
+    z-index: 2; /* Upewnij się, że zawartość jest nad warstwą z efektem rozmycia */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    padding: 20px; /* Dodaj odstęp wewnątrz kontenera */
+}
+
+        
+.nav-link {
+    color: white;
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.nav-link:hover {
+    color: #999999;
+}
+
+.nav {
+    padding-bottom: 30px;
+}
+
+.about {
+    text-align: left;
+    line-height: 1.6;
+}
+
+.input-group-prepend {
+    width: 200px;
+}
+.input-group-text {
+    width: 200px;
+}
+
+.last-input {
+    width: 380px;
+}
+
+.submit-btn {
+    width: 750px;
+}
+
+.form-group {
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width: 1000px) {
+    .submit-btn {
+        width: 600px;
+    }
+    .input-group-prepend {
+        width: 150px;
+    }
+    .input-group-text {
+        width: 150px;
+    }
+    .last-input {
+        width: 380px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .submit-btn {
+        width: 400px;
+    }
+    .input-group-prepend {
+        width: 400px;
+        padding-bottom: 2px;
+    }
+    .input-group-text {
+        width: 400px;
+        
+    }
+    .col-sm-4 {
+        width: 400px;
+    }
+    .form-control {
+        width: 400px;
+    }
+  }

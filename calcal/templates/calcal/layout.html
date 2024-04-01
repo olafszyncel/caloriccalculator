@@ -12,6 +12,12 @@
         {% endblock %}
     </head>
     <body>
+        <div class="background">
+            <div class="blur-layer"></div>
+            <div class="content">
+            
+
+        
         <ul class="nav justify-content-center">
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'index' %}">About</a>
@@ -24,7 +30,7 @@
                     <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Shopping list</a>
+                    <a class="nav-link" href="{% url 'shopping' %}">Shopping list</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
@@ -35,11 +41,12 @@
                 </li>
             {% endif %}
           </ul>
-        <hr>
 
         <div class="container">
             {% block body %}
             {% endblock %}
+        </div>
+        </div>
         </div>
     </body>
 </html>

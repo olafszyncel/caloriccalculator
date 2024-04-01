@@ -25,18 +25,30 @@ function showSection(day) {
     .then(meals => {
         console.log(meals)
         var counter = 0;
+        var allCalories = 0;
+        var allFat = 0;
+        var allCarbs = 0;
+        var allProtein = 0;
         meals.forEach(meal => {
+            var calories = 0;
+            var fat = 0;
+            var carbs = 0;
+            var protein = 0;
             meal.forEach(product => {
-                
+                let x = Math.round(product.gram/100);
+                calories = calories + product.caloric*x;
+                fat = fat + product.fat*x;
+                carbs = carbs + product.carbs*x;
+                protein = protein + product.protein*x;
                 const element = document.createElement('div');
                 element.innerHTML = `<div id="meal${counter}id${product.id}" class="card-body"><h5><b>${product.product}</b>   <i>${product.gram}g</i>
-                <button class="btn btn-outline-danger" type="submit" onclick="deleteProduct(${counter}, ${product.id})">
+                <button class="btn btn-outline-danger" type="submit" onclick="deleteProduct(${counter}, ${product.id}, ${day})">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
                 </svg>
                 </button></h5>
                 
-                <h6>${product.caloric}kcal    fat: ${product.fat}g  carbs: ${product.carbs}g  protein: ${product.protein}g</h6>
+                <h6>${product.caloric*x}kcal    fat: ${product.fat*x}g  carbs: ${product.carbs*x}g  protein: ${product.protein*x}g</h6>
                 </div>`;
                 if (counter === 0) {
                     document.querySelector('#b-content').append(element);
@@ -48,7 +60,19 @@ function showSection(day) {
                 
                 
             })
+            if (counter === 0) {
+                document.querySelector('#b-caloric-head').innerHTML = `${calories}kcal fat: ${fat}g carbs: ${carbs}g protein: ${protein}g`;
+            } else if (counter === 1) {
+                document.querySelector('#l-caloric-head').innerHTML = `${calories}kcal fat: ${fat}g carbs: ${carbs}g protein: ${protein}g`;
+            } else {
+                document.querySelector('#d-caloric-head').innerHTML = `${calories}kcal fat: ${fat}g carbs: ${carbs}g protein: ${protein}g`;
+            }
             counter++;
+            allCalories = allCalories + calories;
+            allCarbs = allCarbs + carbs;
+            allFat = allFat + fat;
+            allProtein = allProtein + protein;
+            document.querySelector('#day-caloric-head').innerHTML = `${allCalories}kcal fat: ${allFat}g carbs: ${allCarbs}g protein: ${allProtein}g`
         });
     })
 }
@@ -89,9 +113,7 @@ function thisDay() {
 
 window.onload = thisDay;
 
-function deleteProduct(meal, id) {
-    //niech usuwa tez tego diva js
-    let div = document.getElementById(`meal${meal}id${id}`);
-    div.replaceChildren();
+function deleteProduct(meal, id, day) {
     fetch(`/delete/${meal}/${id}`)
+    showSection(day);
 }

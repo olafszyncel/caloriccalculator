@@ -23,6 +23,10 @@
 
     <div class="container">
         <div class="row">
+            <h5 id="day-caloric-head"></h5>
+
+        </div>
+        <div class="row">
             <div class="col">
                 <form method="post">
                     {% csrf_token %}
@@ -42,21 +46,23 @@
         <div class="row">
             <div class="col-sm">
                 <h5>Breakfast</h5>
-
-                <div id="b-content">
-
-                </div>
+                <h6 id="b-caloric-head"></h6>
+                <hr>
+                <div id="b-content"></div>
                 
             </div>
             <div class="col-sm">
                 <h5>Lunch</h5>
-
+                <h6 id="l-caloric-head"></h6>
+                <hr>
                 <div id="l-content">
 
                 </div>
             </div>
             <div class="col-sm">
                 <h5>Dinner</h5>
+                <h6 id="d-caloric-head"></h6>
+                <hr>
                 <div id="d-content">
 
                 </div>

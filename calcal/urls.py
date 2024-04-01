@@ -9,5 +9,6 @@ urlpatterns = [
     path("profile", views.profile, name="profile"),
     path("menu", views.menu, name="menu"),
     path("weekday/<int:day>", views.weekday, name="weekday"),
+    path("shopping", views.shopping, name="shopping"),
     path("delete/<int:meal>/<int:meal_id>", views.delete_product, name="delete_product")
 ]

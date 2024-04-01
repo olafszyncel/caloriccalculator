@@ -176,6 +176,34 @@ def delete_product(request, meal, meal_id):
     p.delete()
     return HttpResponseRedirect(reverse(menu))
 
+def shopping(request):
+    user = User.objects.get(pk=request.user.id)
+    b = Breakfast.objects.filter(user=user)
+    l = Lunch.objects.filter(user=user)
+    d = Dinner.objects.filter(user=user)
+    product_list = {}
+    for food in b:
+        product = food.product.lower()
+        if product in product_list:
+            product_list[product] += food.product_weight
+        else:
+            product_list[product] = food.product_weight
+    for food in l:
+        product = food.product.lower()
+        if product in product_list:
+            product_list[product] += food.product_weight
+        else:
+            product_list[product] = food.product_weight
+    for food in d:
+        product = food.product.lower()
+        if product in product_list:
+            product_list[product] += food.product_weight
+        else:
+            product_list[product] = food.product_weight
+    return render(request, "calcal/shopping.html", {
+        "list": product_list
+    })
+
 def login_view(request):
     #if user is authenticated redirect to index
 
