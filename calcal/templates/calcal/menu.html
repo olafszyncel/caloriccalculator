@@ -1,0 +1,67 @@
+{% extends "calcal/layout.html" %}
+
+{% block body %}
+
+    {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+
+    <div class="nav justify-content-center">
+        <div class="btn-group" style="width:100%;"role="group" aria-label="Basic example">
+            <button data-section="1" data-page="day1" type="button" name="1" id="btn-day1" class="btn-day btn btn-secondary">Monday</button>
+            <button data-section="2" data-page="day2" type="button" name="2" id="btn-day2" class="btn-day btn btn-secondary">Tuesday</button>
+            <button data-section="3" data-page="day3" type="button" name="3" id="btn-day3" class="btn-day btn btn-secondary">Wednesday</button>
+            <button data-section="4" data-page="day4" type="button" name="4" id="btn-day4" class="btn-day btn btn-secondary">Thursday</button>
+            <button data-section="5" data-page="day5" type="button" name="5" id="btn-day5" class="btn-day btn btn-secondary">Friday</button>
+            <button data-section="6" data-page="day6" type="button" name="6" id="btn-day6" class="btn-day btn btn-secondary">Saturday</button>
+            <button data-section="0" data-page="day0" type="button" name="0" id="btn-day0" class="btn-day btn btn-secondary">Sunday</button>
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form method="post">
+                    {% csrf_token %}
+                    <input class="form-group mx-sm-3 mb-2 form-control" type="text" name="query" placeholder="search for product">
+                    <input class="form-group mx-sm-3 mb-2 form-control" type="number" name="amount" placeholder="grams">
+                    <input type="hidden" name="single-day" id="single-day">
+                    <select class="form-group mx-sm-3 mb-2 form-control" name="meal">
+                        <option>Breakfast</option>
+                        <option>Lunch</option>
+                        <option>Dinner</option>
+                    </select>
+                    <button class="form-group mx-sm-3 mb-2 btn btn-success" type="submit">Add product</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm">
+                <h5>Breakfast</h5>
+
+                <div id="b-content">
+
+                </div>
+                
+            </div>
+            <div class="col-sm">
+                <h5>Lunch</h5>
+
+                <div id="l-content">
+
+                </div>
+            </div>
+            <div class="col-sm">
+                <h5>Dinner</h5>
+                <div id="d-content">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
