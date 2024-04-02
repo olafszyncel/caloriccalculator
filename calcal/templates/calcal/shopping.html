@@ -1,0 +1,32 @@
+{% extends "calcal/layout.html" %}
+
+{% block body %}
+
+    <h2>Shopping list</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for k, v in list.items %}
+                <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ v }}g</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+        
+      
+
+    
+
+{% endblock %}

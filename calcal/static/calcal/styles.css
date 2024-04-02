@@ -1,0 +1,158 @@
+.form-range {
+    width: 100%;
+}
+
+.btn-group {
+    padding-bottom: 10px;
+}
+
+.product-head{
+    display: inline-block;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%; 
+    filter: blur(5px); 
+    filter: brightness(25%);
+    background-image: url('images/image3.jpg');
+    background-size: cover; 
+    background-position: center; 
+    
+    background-repeat:repeat;
+	background-attachment:fixed;
+	position: fixed;
+    overflow: hidden;
+	line-height:2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.content {
+    color: white; 
+    position: relative;
+    z-index: 1; 
+    text-align: center; 
+    padding: 20px; 
+    overflow-y: auto; 
+}
+
+        
+.nav-link {
+    color: white;
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.nav-link:hover {
+    color: #999999;
+}
+
+.nav {
+    padding-bottom: 30px;
+}
+
+.about {
+    text-align: left;
+    line-height: 1.6;
+}
+
+.input-group-prepend {
+    width: 200px;
+}
+.input-group-text {
+    width: 200px;
+}
+
+.last-input {
+    width: 380px;
+}
+
+.submit-btn {
+    width: 750px;
+}
+
+.form-group {
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-secondary {
+    color: white;
+}
+
+.single-product {
+    border: 1px solid grey;
+    border-top: none;
+    border-bottom-left-radius: 2%;
+    border-bottom-right-radius: 2%;
+    padding: 3px;
+}
+
+.meal-head {
+    background-color: white;
+    color: #333333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.shopping-item {
+    background-color: transparent;
+    font-size: 20px;
+    border-color: white;
+    
+}
+.table-dark {
+    background-color: transparent;
+    border: 1px solid;
+}
+
+td, th {
+    background-color: transparent;
+    border: 1px solid;
+}
+
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: #ffffff;
+}
+
+.row {
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .submit-btn {
+        width: 600px;
+    }
+    .input-group-prepend {
+        width: 150px;
+    }
+    .input-group-text {
+        width: 150px;
+    }
+    .last-input {
+        width: 380px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .submit-btn {
+        width: 400px;
+    }
+    .input-group-prepend {
+        width: 400px;
+        padding-bottom: 2px;
+    }
+    .input-group-text {
+        width: 400px;
+    }
+    .col-sm-4 {
+        width: 400px;
+    }
+    .form-control {
+        width: 400px;
+    }
+  }
