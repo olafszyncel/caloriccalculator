@@ -2,10 +2,6 @@
     width: 100%;
 }
 
-.card-body {
-    padding: 3px;
-}
-
 .btn-group {
     padding-bottom: 10px;
 }
@@ -15,37 +11,33 @@
 }
 
 .background {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
     width: 100%;
-    height: 100vh; /* 100% wysokości widoku */
+    height: 100%; 
+    filter: blur(5px); 
+    filter: brightness(25%);
     background-image: url('images/image3.jpg');
-    background-size: cover; /* Zapewnia, że obraz wypełnia całe tło */
-    background-position: center; /* Pozycja obrazu */
-    color: white; /* Kolor tekstu */
+    background-size: cover; 
+    background-position: center; 
+    
     background-repeat:repeat;
 	background-attachment:fixed;
-	overflow:scroll;
+	position: fixed;
+    overflow: hidden;
 	line-height:2em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.blur-layer {
-    position: fixed;
-    filter: brightness(25%);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(5px); /* Rozmycie warstwy */
-   
-    z-index: 1; /* Upewnij się, że warstwa z efektem rozmycia jest na wierzchu */
-}
-
 .content {
+    color: white; 
     position: relative;
-    z-index: 2; /* Upewnij się, że zawartość jest nad warstwą z efektem rozmycia */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    padding: 20px; /* Dodaj odstęp wewnątrz kontenera */
+    z-index: 1; 
+    text-align: center; 
+    padding: 20px; 
+    overflow-y: auto; 
 }
 
         
@@ -87,6 +79,50 @@
     align-items: center;
     justify-content: center;
 }
+
+.btn-outline-secondary {
+    color: white;
+}
+
+.single-product {
+    border: 1px solid grey;
+    border-top: none;
+    border-bottom-left-radius: 2%;
+    border-bottom-right-radius: 2%;
+    padding: 3px;
+}
+
+.meal-head {
+    background-color: white;
+    color: #333333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.shopping-item {
+    background-color: transparent;
+    font-size: 20px;
+    border-color: white;
+    
+}
+.table-dark {
+    background-color: transparent;
+    border: 1px solid;
+}
+
+td, th {
+    background-color: transparent;
+    border: 1px solid;
+}
+
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: #ffffff;
+}
+
+.row {
+    justify-content: center;
+}
+
 @media only screen and (max-width: 1000px) {
     .submit-btn {
         width: 600px;
@@ -112,7 +148,6 @@
     }
     .input-group-text {
         width: 400px;
-        
     }
     .col-sm-4 {
         width: 400px;
